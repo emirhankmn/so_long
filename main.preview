@@ -1,0 +1,15 @@
+void	render_map(char **map) {
+	for (int y = 0; map[y]; y++) {
+		for (int x = 0; map[y][x]; x++) {
+			draw_tile(x, y, map[y][x]);
+		}
+	}
+}
+
+void	move_player(int dx, int dy) {
+	if (can_move(player.x + dx, player.y + dy)) {
+		player.x += dx;
+		player.y += dy;
+		render_map(game_map);
+	}
+}
